@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		501965B62DDC948C00507260 /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 501965B52DDC948C00507260 /* FirebaseVertexAI */; };
+		500F2A5D2DDE537300CA96D6 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 500F2A5C2DDE537300CA96D6 /* FirebaseAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,13 +23,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		501965AA2DDC945A00507260 /* libFirebaseVertexAIBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseVertexAIBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		501965AA2DDC945A00507260 /* libFirebaseAIBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseAIBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		501965AC2DDC945A00507260 /* FirebaseVertexAIBridge */ = {
+		501965AC2DDC945A00507260 /* FirebaseAIBridge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FirebaseVertexAIBridge;
+			path = FirebaseAIBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501965B62DDC948C00507260 /* FirebaseVertexAI in Frameworks */,
+				500F2A5D2DDE537300CA96D6 /* FirebaseAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +49,7 @@
 		501965A12DDC945A00507260 = {
 			isa = PBXGroup;
 			children = (
-				501965AC2DDC945A00507260 /* FirebaseVertexAIBridge */,
+				501965AC2DDC945A00507260 /* FirebaseAIBridge */,
 				501965AB2DDC945A00507260 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 		501965AB2DDC945A00507260 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				501965AA2DDC945A00507260 /* libFirebaseVertexAIBridge.a */,
+				501965AA2DDC945A00507260 /* libFirebaseAIBridge.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,28 +65,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		501965A92DDC945A00507260 /* FirebaseVertexAIBridge */ = {
+		501965A92DDC945A00507260 /* FirebaseAIBridge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 501965B12DDC945A00507260 /* Build configuration list for PBXNativeTarget "FirebaseVertexAIBridge" */;
+			buildConfigurationList = 501965B12DDC945A00507260 /* Build configuration list for PBXNativeTarget "FirebaseAIBridge" */;
 			buildPhases = (
 				501965A62DDC945A00507260 /* Sources */,
 				501965A72DDC945A00507260 /* Frameworks */,
 				501965A82DDC945A00507260 /* CopyFiles */,
-				501965B92DDC980000507260 /* ShellScript */,
+				501965BC2DDCBC4000507260 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				501965AC2DDC945A00507260 /* FirebaseVertexAIBridge */,
+				501965AC2DDC945A00507260 /* FirebaseAIBridge */,
 			);
-			name = FirebaseVertexAIBridge;
+			name = FirebaseAIBridge;
 			packageProductDependencies = (
-				501965B52DDC948C00507260 /* FirebaseVertexAI */,
+				500F2A5C2DDE537300CA96D6 /* FirebaseAI */,
 			);
 			productName = FirebaseVertexAIBridge;
-			productReference = 501965AA2DDC945A00507260 /* libFirebaseVertexAIBridge.a */;
+			productReference = 501965AA2DDC945A00507260 /* libFirebaseAIBridge.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 501965A52DDC945A00507260 /* Build configuration list for PBXProject "FirebaseVertexAIBridge" */;
+			buildConfigurationList = 501965A52DDC945A00507260 /* Build configuration list for PBXProject "FirebaseAIBridge" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -114,20 +114,20 @@
 			mainGroup = 501965A12DDC945A00507260;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				501965B42DDC948C00507260 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				500F2A5B2DDE537300CA96D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 501965AB2DDC945A00507260 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				501965A92DDC945A00507260 /* FirebaseVertexAIBridge */,
+				501965A92DDC945A00507260 /* FirebaseAIBridge */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		501965B92DDC980000507260 /* ShellScript */ = {
+		501965BC2DDCBC4000507260 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,7 +284,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseVertexAIBridge/FirebaseVertexAIBridge-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseAIBridge/FirebaseAIBridge-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,7 +298,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseVertexAIBridge/FirebaseVertexAIBridge-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseAIBridge/FirebaseAIBridge-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -307,7 +307,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		501965A52DDC945A00507260 /* Build configuration list for PBXProject "FirebaseVertexAIBridge" */ = {
+		501965A52DDC945A00507260 /* Build configuration list for PBXProject "FirebaseAIBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				501965AF2DDC945A00507260 /* Debug */,
@@ -316,7 +316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		501965B12DDC945A00507260 /* Build configuration list for PBXNativeTarget "FirebaseVertexAIBridge" */ = {
+		501965B12DDC945A00507260 /* Build configuration list for PBXNativeTarget "FirebaseAIBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				501965B22DDC945A00507260 /* Debug */,
@@ -328,21 +328,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		501965B42DDC948C00507260 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		500F2A5B2DDE537300CA96D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 11.12.0;
+				minimumVersion = 11.13.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		501965B52DDC948C00507260 /* FirebaseVertexAI */ = {
+		500F2A5C2DDE537300CA96D6 /* FirebaseAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 501965B42DDC948C00507260 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseVertexAI;
+			package = 500F2A5B2DDE537300CA96D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

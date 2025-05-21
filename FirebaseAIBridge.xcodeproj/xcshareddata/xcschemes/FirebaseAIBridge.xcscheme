@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "501965A92DDC945A00507260"
-               BuildableName = "libFirebaseVertexAIBridge.a"
-               BlueprintName = "FirebaseVertexAIBridge"
-               ReferencedContainer = "container:FirebaseVertexAIBridge.xcodeproj">
+               BuildableName = "libFirebaseAIBridge.a"
+               BlueprintName = "FirebaseAIBridge"
+               ReferencedContainer = "container:FirebaseAIBridge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "501965A92DDC945A00507260"
-            BuildableName = "libFirebaseVertexAIBridge.a"
-            BlueprintName = "FirebaseVertexAIBridge"
-            ReferencedContainer = "container:FirebaseVertexAIBridge.xcodeproj">
+            BuildableName = "libFirebaseAIBridge.a"
+            BlueprintName = "FirebaseAIBridge"
+            ReferencedContainer = "container:FirebaseAIBridge.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
