@@ -1,0 +1,6 @@
+framework module Pods_FirebaseAIBridge {
+  umbrella header "Pods-FirebaseAIBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}

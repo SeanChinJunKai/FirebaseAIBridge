@@ -1,0 +1,10 @@
+//
+//  .gitignore
+//  FirebaseAIBridge
+//
+//  Created by Sean  Chin on 29/5/25.
+//
+
+Pods/
+Podfile.lock
+*.xcworkspace

@@ -1,0 +1,6 @@
+framework module FirebaseAI {
+  umbrella header "FirebaseAI-umbrella.h"
+
+  export *
+  module * { export * }
+}
