@@ -69,4 +69,28 @@ public class GenerativeModelObjc: NSObject {
         let response = try await model.generateContent(internalParts)
         return response.text
     }
+    
+    @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
+        let response = try await model.countTokens(prompt)
+        return CountTokensResponseObjc.from(response)
+    }
+    
+    @objc public func countTokens(parts: [PartObjc]) async throws -> CountTokensResponseObjc {
+        let internalParts: [any PartsRepresentable] = parts.map { part in
+            switch part {
+                case let part as TextPartObjc:
+                    return TextPart(part.text)
+                case let part as InlineDataPartObjc:
+                    return InlineDataPart(data: part.data, mimeType: part.mimeType)
+                case let part as FileDataPartObjc:
+                    return FileDataPart(uri: part.fileURI, mimeType: part.mimeType)
+                case let part as ImagePartObjc:
+                    return part.image
+                default:
+                    fatalError("Unsupported part type")
+            }
+        }
+        let response = try await model.countTokens(internalParts)
+        return CountTokensResponseObjc.from(response)
+    }
 }
