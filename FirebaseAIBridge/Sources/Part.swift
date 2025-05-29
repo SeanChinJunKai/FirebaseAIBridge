@@ -8,7 +8,21 @@ import Foundation
 import FirebaseAI
 
 @objc(PartObjc)
-public class PartObjc: NSObject {}
+public class PartObjc: NSObject {
+    // TODO: Add switch case for functionCall and functionResponse
+    public static func from(_ part: any Part) -> PartObjc {
+        switch part {
+        case let part as TextPart:
+            return TextPartObjc(text: part.text)
+        case let part as InlineDataPart:
+            return InlineDataPartObjc(data: part.data, mimeType: part.mimeType)
+        case let part as FileDataPart:
+            return FileDataPartObjc(fileURI: part.uri, mimeType: part.mimeType)
+        default:
+            return TextPartObjc(text: "DUMMY")
+        }
+    }
+}
 
 @objc(TextPartObjc)
 public class TextPartObjc: PartObjc {

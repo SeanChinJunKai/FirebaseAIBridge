@@ -54,6 +54,7 @@ public class ModalityTokenCountObjc: NSObject {
 
 @objc(ContentModalityObjc)
 public class ContentModalityObjc: NSObject {
+    // TODO: Refactor this
     @objc public static let text = ContentModalityObjc(rawValue: "TEXT")
     @objc public static let image = ContentModalityObjc(rawValue: "IMAGE")
     @objc public static let video = ContentModalityObjc(rawValue: "VIDEO")

@@ -44,13 +44,13 @@ public class GenerativeModelObjc: NSObject {
     }
     
     
-    @objc public func generateContent(prompt: String) async throws -> String? {
+    @objc public func generateContent(prompt: String) async throws -> GenerateContentResponseObjc {
         let response = try await model.generateContent(prompt)
-        return response.text
+        return GenerateContentResponseObjc.from(response)
     }
     
     
-    @objc public func generateContent(parts: [PartObjc]) async throws -> String? {
+    @objc public func generateContent(parts: [PartObjc]) async throws -> GenerateContentResponseObjc {
         let internalParts: [any PartsRepresentable] = parts.map { part in
             switch part {
                 case let part as TextPartObjc:
@@ -67,7 +67,7 @@ public class GenerativeModelObjc: NSObject {
         }
         
         let response = try await model.generateContent(internalParts)
-        return response.text
+        return GenerateContentResponseObjc.from(response)
     }
     
     @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
