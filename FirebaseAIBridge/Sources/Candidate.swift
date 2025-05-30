@@ -44,39 +44,3 @@ public class CandidateObjc: NSObject {
         )
     }
 }
-
-
-@objcMembers
-public class ModelContentObjc: NSObject {
-    public let role: String?
-    
-    public let parts: [PartObjc]
-    
-    public init(role: String?, parts: [PartObjc]) {
-        self.role = role
-        self.parts = parts
-    }
-    
-    public static func from(_ modelContent: ModelContent) -> ModelContentObjc {
-        return ModelContentObjc(
-            role: modelContent.role,
-            parts: modelContent.parts.map {
-                PartObjc.from($0)
-            }
-        )
-    }
-    
-}
-
-@objcMembers
-public class FinishReasonObjc: NSObject {
-    public let rawValue: String
-    
-    public init(rawValue: String) {
-        self.rawValue = rawValue
-    }
-    
-    public static func from(_ finishReason: FinishReason) -> FinishReasonObjc {
-        return FinishReasonObjc(rawValue: finishReason.rawValue)
-    }
-}

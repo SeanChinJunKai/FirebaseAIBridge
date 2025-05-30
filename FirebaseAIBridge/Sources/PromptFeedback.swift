@@ -31,15 +31,3 @@ public class PromptFeedbackObjc: NSObject {
     }
 }
 
-@objcMembers
-public class BlockReasonObjc: NSObject {
-    public let rawValue: String
-    
-    public init(rawValue: String) {
-        self.rawValue = rawValue
-    }
-    
-    public static func from(_ reason: PromptFeedback.BlockReason) -> BlockReasonObjc {
-        return BlockReasonObjc(rawValue: reason.rawValue)
-    }
-}
