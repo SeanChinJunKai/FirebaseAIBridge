@@ -7,13 +7,13 @@
 import Foundation
 import FirebaseAI
 
-@objc(ModalityTokenCountObjc)
+@objcMembers
 public class ModalityTokenCountObjc: NSObject {
-    @objc public let modality: ContentModalityObjc
+    public let modality: ContentModalityObjc
     
-    @objc public let tokenCount: NSNumber
+    public let tokenCount: Int
     
-    @objc public init(modality: ContentModalityObjc, tokenCount: NSNumber) {
+    public init(modality: ContentModalityObjc, tokenCount: Int) {
         self.modality = modality
         self.tokenCount = tokenCount
     }
@@ -21,7 +21,7 @@ public class ModalityTokenCountObjc: NSObject {
     public static func from(_ modalityTokenCount: ModalityTokenCount) -> ModalityTokenCountObjc {
         return ModalityTokenCountObjc(
             modality: ContentModalityObjc.from(modalityTokenCount.modality),
-            tokenCount: NSNumber(value: modalityTokenCount.tokenCount)
+            tokenCount: modalityTokenCount.tokenCount
         )
     }
 }

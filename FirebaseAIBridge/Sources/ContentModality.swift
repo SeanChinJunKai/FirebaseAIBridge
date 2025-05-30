@@ -7,38 +7,28 @@
 import Foundation
 import FirebaseAI
 
-
-
-@objc(ContentModalityObjc)
-public class ContentModalityObjc: NSObject {
-    // TODO: Refactor this
-    @objc public static let text = ContentModalityObjc(rawValue: "TEXT")
-    @objc public static let image = ContentModalityObjc(rawValue: "IMAGE")
-    @objc public static let video = ContentModalityObjc(rawValue: "VIDEO")
-    @objc public static let audio = ContentModalityObjc(rawValue: "AUDIO")
-    @objc public static let document = ContentModalityObjc(rawValue: "DOCUMENT")
-    @objc public static let unknown = ContentModalityObjc(rawValue: "UNKNOWN")
-    
-    @objc public let rawValue: String
-    
-    @objc public init(rawValue: String) {
-        self.rawValue = rawValue
-    }
+@objc public enum ContentModalityObjc: Int {
+    case unspecified = 0
+    case text = 1
+    case image = 2
+    case video = 3
+    case audio = 4
+    case document = 5
     
     public static func from(_ modality: ContentModality) -> ContentModalityObjc {
         switch modality.rawValue {
-        case "TEXT":
+        case ContentModality.text.rawValue:
             return .text
-        case "IMAGE":
+        case ContentModality.image.rawValue:
             return .image
-        case "VIDEO":
+        case ContentModality.video.rawValue:
             return .video
-        case "AUDIO":
+        case ContentModality.audio.rawValue:
             return .audio
-        case "DOCUMENT":
+        case ContentModality.document.rawValue:
             return .document
         default:
-            return .unknown
+            return .unspecified
         }
     }
 }

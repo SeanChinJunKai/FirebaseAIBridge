@@ -7,15 +7,15 @@
 import Foundation
 import FirebaseAI
 
-@objc(CountTokensResponseObjc)
+@objcMembers
 public class CountTokensResponseObjc: NSObject {
-    @objc public let totalTokens: NSNumber
+    public let totalTokens: Int
     
-    @objc public let totalBillableCharacters: NSNumber?
+    public let totalBillableCharacters: Int?
     
-    @objc public let promptTokenDetails: [ModalityTokenCountObjc]
+    public let promptTokenDetails: [ModalityTokenCountObjc]
     
-    @objc public init(totalTokens: NSNumber, totalBillableCharacters: NSNumber?, promptTokenDetails: [ModalityTokenCountObjc]) {
+    public init(totalTokens: Int, totalBillableCharacters: Int?, promptTokenDetails: [ModalityTokenCountObjc]) {
         self.totalTokens = totalTokens
         self.totalBillableCharacters = totalBillableCharacters
         self.promptTokenDetails = promptTokenDetails
@@ -23,8 +23,8 @@ public class CountTokensResponseObjc: NSObject {
     
     public static func from(_ countTokensResponse: CountTokensResponse) -> CountTokensResponseObjc {
         return CountTokensResponseObjc(
-            totalTokens: NSNumber(value: countTokensResponse.totalTokens),
-            totalBillableCharacters: countTokensResponse.totalBillableCharacters as NSNumber?,
+            totalTokens: countTokensResponse.totalTokens,
+            totalBillableCharacters: countTokensResponse.totalBillableCharacters,
             promptTokenDetails: countTokensResponse.promptTokensDetails.map {
                 ModalityTokenCountObjc.from($0)
             }
