@@ -11,11 +11,11 @@ import FirebaseAI
 public class CountTokensResponseObjc: NSObject {
     public let totalTokens: Int
     
-    public let totalBillableCharacters: Int?
+    public let totalBillableCharacters: NSNumber?
     
     public let promptTokenDetails: [ModalityTokenCountObjc]
     
-    public init(totalTokens: Int, totalBillableCharacters: Int?, promptTokenDetails: [ModalityTokenCountObjc]) {
+    public init(totalTokens: Int, totalBillableCharacters: NSNumber?, promptTokenDetails: [ModalityTokenCountObjc]) {
         self.totalTokens = totalTokens
         self.totalBillableCharacters = totalBillableCharacters
         self.promptTokenDetails = promptTokenDetails
@@ -24,7 +24,9 @@ public class CountTokensResponseObjc: NSObject {
     public static func from(_ countTokensResponse: CountTokensResponse) -> CountTokensResponseObjc {
         return CountTokensResponseObjc(
             totalTokens: countTokensResponse.totalTokens,
-            totalBillableCharacters: countTokensResponse.totalBillableCharacters,
+            totalBillableCharacters: countTokensResponse.totalBillableCharacters.map {
+                NSNumber(value: $0)
+            },
             promptTokenDetails: countTokensResponse.promptTokensDetails.map {
                 ModalityTokenCountObjc.from($0)
             }
