@@ -49,14 +49,58 @@ public class GenerativeModelObjc: NSObject {
         return GenerateContentResponseObjc.from(response)
     }
     
-    
     @objc public func generateContent(content: [ModelContentObjc]) async throws -> GenerateContentResponseObjc {
-        let contents = content.map {
-            ModelContentObjc.to($0)
-        }
+        let contents = content.map { ModelContentObjc.to($0) }
         let response = try await model.generateContent(contents)
         return GenerateContentResponseObjc.from(response)
     }
+    
+    @objc public func generateContentStream(
+        prompt: String,
+        onResponse: @escaping (GenerateContentResponseObjc) -> Void,
+        onComplete: @escaping (NSError?) -> Void
+    ) {
+        do {
+            let responseStream = try model.generateContentStream(prompt)
+            Task {
+                do {
+                    for try await response in responseStream {
+                        onResponse(GenerateContentResponseObjc.from(response))
+                    }
+                    onComplete(nil)
+                } catch {
+                    onComplete(error as NSError)
+                }
+            }
+        } catch {
+            onComplete(error as NSError)
+        }
+    }
+    
+    @objc public func generateContentStream(
+        content: [ModelContentObjc],
+        onResponse: @escaping (GenerateContentResponseObjc) -> Void,
+        onComplete: @escaping (NSError?) -> Void
+    ) {
+        do {
+            let contents = content.map { ModelContentObjc.to($0) }
+            let responseStream = try model.generateContentStream(contents)
+            Task {
+                do {
+                    for try await response in responseStream {
+                        onResponse(GenerateContentResponseObjc.from(response))
+                    }
+                    onComplete(nil)
+                } catch {
+                    onComplete(error as NSError)
+                }
+            }
+        } catch {
+            onComplete(error as NSError)
+        }
+    }
+    
+    
     
     @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
         let response = try await model.countTokens(prompt)
@@ -64,9 +108,7 @@ public class GenerativeModelObjc: NSObject {
     }
     
     @objc public func countTokens(content: [ModelContentObjc]) async throws -> CountTokensResponseObjc {
-        let contents = content.map {
-            ModelContentObjc.to($0)
-        }
+        let contents = content.map { ModelContentObjc.to($0) }
         let response = try await model.countTokens(contents)
         return CountTokensResponseObjc.from(response)
     }
