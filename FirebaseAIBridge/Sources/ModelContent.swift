@@ -27,4 +27,25 @@ public class ModelContentObjc: NSObject {
         )
     }
     
+    public static func to(_ modelContent: ModelContentObjc) -> ModelContent {
+        let internalParts: [any PartsRepresentable] = modelContent.parts.map { part in
+            switch part {
+                case let part as TextPartObjc:
+                    return TextPart(part.text)
+                case let part as InlineDataPartObjc:
+                    return InlineDataPart(data: part.data, mimeType: part.mimeType)
+                case let part as FileDataPartObjc:
+                    return FileDataPart(uri: part.fileURI, mimeType: part.mimeType)
+                case let part as ImagePartObjc:
+                    return part.image
+                default:
+                    fatalError("Unsupported part type")
+            }
+        }
+        return ModelContent(
+            role: modelContent.role,
+            parts: internalParts
+        )
+    }
+    
 }

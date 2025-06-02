@@ -50,23 +50,11 @@ public class GenerativeModelObjc: NSObject {
     }
     
     
-    @objc public func generateContent(parts: [PartObjc]) async throws -> GenerateContentResponseObjc {
-        let internalParts: [any PartsRepresentable] = parts.map { part in
-            switch part {
-                case let part as TextPartObjc:
-                    return TextPart(part.text)
-                case let part as InlineDataPartObjc:
-                    return InlineDataPart(data: part.data, mimeType: part.mimeType)
-                case let part as FileDataPartObjc:
-                    return FileDataPart(uri: part.fileURI, mimeType: part.mimeType)
-                case let part as ImagePartObjc:
-                    return part.image
-                default:
-                    fatalError("Unsupported part type")
-            }
+    @objc public func generateContent(content: [ModelContentObjc]) async throws -> GenerateContentResponseObjc {
+        let contents = content.map {
+            ModelContentObjc.to($0)
         }
-        
-        let response = try await model.generateContent(internalParts)
+        let response = try await model.generateContent(contents)
         return GenerateContentResponseObjc.from(response)
     }
     
@@ -75,22 +63,11 @@ public class GenerativeModelObjc: NSObject {
         return CountTokensResponseObjc.from(response)
     }
     
-    @objc public func countTokens(parts: [PartObjc]) async throws -> CountTokensResponseObjc {
-        let internalParts: [any PartsRepresentable] = parts.map { part in
-            switch part {
-                case let part as TextPartObjc:
-                    return TextPart(part.text)
-                case let part as InlineDataPartObjc:
-                    return InlineDataPart(data: part.data, mimeType: part.mimeType)
-                case let part as FileDataPartObjc:
-                    return FileDataPart(uri: part.fileURI, mimeType: part.mimeType)
-                case let part as ImagePartObjc:
-                    return part.image
-                default:
-                    fatalError("Unsupported part type")
-            }
+    @objc public func countTokens(content: [ModelContentObjc]) async throws -> CountTokensResponseObjc {
+        let contents = content.map {
+            ModelContentObjc.to($0)
         }
-        let response = try await model.countTokens(internalParts)
+        let response = try await model.countTokens(contents)
         return CountTokensResponseObjc.from(response)
     }
 }
