@@ -42,8 +42,7 @@ public class CitationObjc: NSObject {
             uri: citation.uri,
             title: citation.title,
             license: citation.license,
-            publicationDate: citation.publicationDate,
-            
+            publicationDate: citation.publicationDate
         )
     }
 }
