@@ -42,7 +42,7 @@ public class UsageMetadataObjc: NSObject {
             },
             candidatesTokensDetails:usageMetadata.candidatesTokensDetails.map {
                 ModalityTokenCountObjc.from($0)
-            },
+            }
         )
     }
 }
