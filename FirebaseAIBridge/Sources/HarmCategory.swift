@@ -9,13 +9,13 @@ import FirebaseAI
 
 @objcMembers
 public class HarmCategoryObjc: NSObject {
-    public let rawString: String
+    public let rawValue: String
     
-    public init(rawString: String) {
-        self.rawString = rawString
+    public init(rawValue: String) {
+        self.rawValue = rawValue
     }
     
     public static func from(_ harmCategory: HarmCategory) -> HarmCategoryObjc {
-        return HarmCategoryObjc(rawString: harmCategory.rawValue)
+        return HarmCategoryObjc(rawValue: harmCategory.rawValue)
     }
 }
