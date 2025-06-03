@@ -15,16 +15,12 @@ public class GenerateContentResponseObjc: NSObject {
 
     public let usageMetadata: UsageMetadataObjc?
     
-    public let text: String?
-    
     public init(candidates: [CandidateObjc],
                 promptFeedback: PromptFeedbackObjc?,
-                usageMetadata: UsageMetadataObjc?,
-                text: String?) {
+                usageMetadata: UsageMetadataObjc?) {
         self.candidates = candidates
         self.promptFeedback = promptFeedback
         self.usageMetadata = usageMetadata
-        self.text = text
     }
     
     
@@ -38,8 +34,7 @@ public class GenerateContentResponseObjc: NSObject {
             },
             usageMetadata: response.usageMetadata.map {
                 UsageMetadataObjc.from($0)
-            },
-            text: response.text
+            }
         )
     }
 }
