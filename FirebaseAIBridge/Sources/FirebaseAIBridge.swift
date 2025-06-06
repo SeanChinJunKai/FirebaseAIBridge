@@ -25,7 +25,7 @@ public class FirebaseAIObjc: NSObject {
         case .googleAI:
             self.service = FirebaseAI.firebaseAI(backend: .googleAI())
         case .vertexAI:
-            self.service = FirebaseAI.firebaseAI(backend: .googleAI())
+            self.service = FirebaseAI.firebaseAI(backend: .vertexAI())
         }
     }
     // TODO: Add missing parameters
