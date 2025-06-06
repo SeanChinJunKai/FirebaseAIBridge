@@ -10,8 +10,8 @@ import FirebaseAI
 @objc(FirebaseObjc)
 public class FirebaseObjc: NSObject {
     //  TODO: Adding missing parameters such as firebase app
-    @objc public static func ai(backend: NSNumber) -> FirebaseAIObjc {
-        return FirebaseAIObjc(backend: backend.boolValue)
+    @objc public static func ai(backend: GenerativeBackendObjc) -> FirebaseAIObjc {
+        return FirebaseAIObjc(backend: backend)
     }
 }
 
@@ -20,11 +20,11 @@ public class FirebaseObjc: NSObject {
 public class FirebaseAIObjc: NSObject {
     private let service: FirebaseAI
     
-    // TODO: Find a better way than Bool
-    init(backend: Bool) {
-        if (backend) {
+    init(backend: GenerativeBackendObjc) {
+        switch backend {
+        case .googleAI:
             self.service = FirebaseAI.firebaseAI(backend: .googleAI())
-        } else {
+        case .vertexAI:
             self.service = FirebaseAI.firebaseAI(backend: .vertexAI())
         }
     }
