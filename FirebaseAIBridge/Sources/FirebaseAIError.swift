@@ -19,6 +19,8 @@ import FirebaseAI
     case contentBlocked = 8
 }
 
+
+/*
 extension Error {
     func toNSError() -> NSError {
         if let decodingError = self as? DecodingError {
@@ -129,3 +131,4 @@ extension GenerateContentError {
         }
     }
 }
+*/
