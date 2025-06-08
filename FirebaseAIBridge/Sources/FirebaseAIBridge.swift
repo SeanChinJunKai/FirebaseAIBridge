@@ -45,14 +45,22 @@ public class GenerativeModelObjc: NSObject {
     
     
     @objc public func generateContent(prompt: String) async throws -> GenerateContentResponseObjc {
-        let response = try await model.generateContent(prompt)
-        return GenerateContentResponseObjc.from(response)
+        do {
+            let response = try await model.generateContent(prompt)
+            return GenerateContentResponseObjc.from(response)
+        } catch {
+            throw error.toNSError()
+        }
     }
     
     @objc public func generateContent(content: [ModelContentObjc]) async throws -> GenerateContentResponseObjc {
-        let contents = content.map { ModelContentObjc.to($0) }
-        let response = try await model.generateContent(contents)
-        return GenerateContentResponseObjc.from(response)
+        do {
+            let contents = content.map { ModelContentObjc.to($0) }
+            let response = try await model.generateContent(contents)
+            return GenerateContentResponseObjc.from(response)
+        } catch {
+            throw error.toNSError()
+        }
     }
     
     @objc public func generateContentStream(
@@ -69,11 +77,11 @@ public class GenerativeModelObjc: NSObject {
                     }
                     onComplete(nil)
                 } catch {
-                    onComplete(error as NSError)
+                    onComplete(error.toNSError())
                 }
             }
         } catch {
-            onComplete(error as NSError)
+            onComplete(error.toNSError())
         }
     }
     
@@ -92,24 +100,32 @@ public class GenerativeModelObjc: NSObject {
                     }
                     onComplete(nil)
                 } catch {
-                    onComplete(error as NSError)
+                    onComplete(error.toNSError())
                 }
             }
         } catch {
-            onComplete(error as NSError)
+            onComplete(error.toNSError())
         }
     }
     
     
     
     @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
-        let response = try await model.countTokens(prompt)
-        return CountTokensResponseObjc.from(response)
+        do {
+            let response = try await model.countTokens(prompt)
+            return CountTokensResponseObjc.from(response)
+        } catch {
+            throw error.toNSError()
+        }
     }
     
     @objc public func countTokens(content: [ModelContentObjc]) async throws -> CountTokensResponseObjc {
-        let contents = content.map { ModelContentObjc.to($0) }
-        let response = try await model.countTokens(contents)
-        return CountTokensResponseObjc.from(response)
+        do {
+            let contents = content.map { ModelContentObjc.to($0) }
+            let response = try await model.countTokens(contents)
+            return CountTokensResponseObjc.from(response)
+        } catch {
+            throw error.toNSError()
+        }
     }
 }
