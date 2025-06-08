@@ -4,7 +4,8 @@
 //
 //  Created by Sean  Chin on 8/6/25.
 //
-
+import Foundation
+import FirebaseAI
 
 @objc public enum FirebaseAIErrorObjc: Int {
     case server = 0
