@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		50943A992DE2E73200F06953 /* FirebaseAIBridge.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FirebaseAIBridge.podspec; sourceTree = "<group>"; };
-		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		50943AC02DE37D2700F06953 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50943AC82DE37F5300F06953 /* libFirebaseAIBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseAIBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A8E1092DE7FF7B001307B0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
