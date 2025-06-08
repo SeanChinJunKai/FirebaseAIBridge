@@ -7,7 +7,7 @@
 import Foundation
 import FirebaseAI
 
-@objc public enum FirebaseAIErrorObjc: Int {
+@objc(FirebaseAIErrorObjc) public enum FirebaseAIErrorObjc: Int {
     case server = 0
     case promptBlocked = 1
     case responseStopped = 2
@@ -18,7 +18,6 @@ import FirebaseAI
     case serviceDisabled = 7
     case contentBlocked = 8
 }
-
 
 
 extension Error {
