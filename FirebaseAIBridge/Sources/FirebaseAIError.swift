@@ -20,7 +20,7 @@ import FirebaseAI
 }
 
 
-/*
+
 extension Error {
     func toNSError() -> NSError {
         if let decodingError = self as? DecodingError {
@@ -131,4 +131,4 @@ extension GenerateContentError {
         }
     }
 }
-*/
+
