@@ -7,7 +7,7 @@
 import Foundation
 import FirebaseAI
 
-@objc public enum FirebaseAIErrorCode: Int {
+@objc public enum FirebaseAIErrorObjc: Int {
     case server = 0
     case promptBlocked = 1
     case responseStopped = 2
@@ -35,7 +35,7 @@ extension Error {
         case _ where message.contains("API key not valid"):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.invalidAPIKey.rawValue,
+                code: FirebaseAIErrorObjc.invalidAPIKey.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: message
                 ]
@@ -43,7 +43,7 @@ extension Error {
         case _ where message.contains("quota"):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.quotaExceeded.rawValue,
+                code: FirebaseAIErrorObjc.quotaExceeded.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: message
                 ]
@@ -51,7 +51,7 @@ extension Error {
         case _ where message == "User location is not supported for the API use.":
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.unsupportedUserLocation.rawValue,
+                code: FirebaseAIErrorObjc.unsupportedUserLocation.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: message
                 ]
@@ -59,7 +59,7 @@ extension Error {
         case _ where message.starts(with: "Vertex AI in Firebase API has not been used in project"):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.serviceDisabled.rawValue,
+                code: FirebaseAIErrorObjc.serviceDisabled.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: message
                 ]
@@ -67,7 +67,7 @@ extension Error {
         default:
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.server.rawValue,
+                code: FirebaseAIErrorObjc.server.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: message
                 ]
