@@ -80,7 +80,7 @@ extension DecodingError {
     func toNSError() -> NSError {
         return NSError(
             domain: "FirebaseAIBridge",
-            code: FirebaseAIErrorCode.serialization.rawValue,
+            code: FirebaseAIErrorObjc.serialization.rawValue,
             userInfo: [
                 NSLocalizedDescriptionKey: self.localizedDescription
             ]
@@ -95,7 +95,7 @@ extension GenerateContentError {
         case .promptBlocked(let response):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.promptBlocked.rawValue,
+                code: FirebaseAIErrorObjc.promptBlocked.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: "Prompt was blocked: \(response.promptFeedback?.blockReason?.rawValue ?? "Unknown reason")",
                     "response": GenerateContentResponseObjc.from(response)
@@ -104,7 +104,7 @@ extension GenerateContentError {
         case .responseStoppedEarly(let reason, let response):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.responseStopped.rawValue,
+                code: FirebaseAIErrorObjc.responseStopped.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: "Content generation stopped. Reason: \(reason)",
                     "response": GenerateContentResponseObjc.from(response)
@@ -113,7 +113,7 @@ extension GenerateContentError {
         case .internalError(let underlying):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.server.rawValue,
+                code: FirebaseAIErrorObjc.server.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: underlying.localizedDescription,
                 ]
@@ -121,7 +121,7 @@ extension GenerateContentError {
         case .promptImageContentError(let underlying):
             return NSError(
                 domain: "FirebaseAIBridge",
-                code: FirebaseAIErrorCode.contentBlocked.rawValue,
+                code: FirebaseAIErrorObjc.contentBlocked.rawValue,
                 userInfo: [
                     NSLocalizedDescriptionKey: underlying.localizedDescription,
                 ]
