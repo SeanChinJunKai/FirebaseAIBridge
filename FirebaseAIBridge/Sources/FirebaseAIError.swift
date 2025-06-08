@@ -1,13 +1,10 @@
 //
-//  FirebaseAIErrorObjc.swift
+//  FirebaseAIError.swift
 //  FirebaseAIBridge
 //
 //  Created by Sean  Chin on 8/6/25.
 //
 
-
-import Foundation
-import FirebaseAI
 
 @objc public enum FirebaseAIErrorObjc: Int {
     case server = 0
@@ -20,6 +17,7 @@ import FirebaseAI
     case serviceDisabled = 7
     case contentBlocked = 8
 }
+
 
 /*
 extension Error {
