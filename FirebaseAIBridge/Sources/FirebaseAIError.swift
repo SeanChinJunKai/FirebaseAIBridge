@@ -6,7 +6,7 @@
 //
 import Foundation
 
-@objc public class FirebaseAIError: NSObject {
+@objc public class FirebaseAIKMPError: NSObject {
     @objc public let error: NSError
     
     @objc public let errorCode: FirebaseAIErrorObjc
