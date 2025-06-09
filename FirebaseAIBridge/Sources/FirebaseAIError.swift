@@ -4,6 +4,18 @@
 //
 //  Created by Sean Chin on 8/6/25.
 //
+import Foundation
+
+@objc public class FirebaseAIError: NSObject {
+    @objc public let error: NSError
+    
+    @objc public let errorCode: FirebaseAIErrorObjc
+    
+    @objc public init(error: NSError, errorCode: FirebaseAIErrorObjc) {
+        self.error = error
+        self.errorCode = errorCode
+    }
+}
 
 @objc public enum FirebaseAIErrorObjc: Int {
     case server = 0
