@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.source           = {
     :git => 'https://github.com/SeanChinJunKai/FirebaseAIBridge.git',
-    :tag => 'CocoaPods-' + s.version.to_s
+    :tag => s.version.to_s
   }
 
   ios_deployment_target = '15.0'
