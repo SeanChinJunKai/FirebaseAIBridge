@@ -5,7 +5,7 @@
 //  Created by Sean  Chin on 12/6/25.
 //
 
-@objc public enum DataTypeObjc: Int {
+public enum DataTypeObjc: Int {
     case string = 0
     case number = 1
     case integer = 2
