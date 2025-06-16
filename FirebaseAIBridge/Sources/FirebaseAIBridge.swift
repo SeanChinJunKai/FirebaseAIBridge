@@ -37,16 +37,21 @@ public class FirebaseAIObjc: NSObject {
 
 @objc(GenerativeModelObjc)
 public class GenerativeModelObjc: NSObject {
-    private let model: GenerativeModel
+    private let model: GenerativeModel?
     
     init(model: GenerativeModel) {
         self.model = model
     }
     
+    // USED FOR TESTING ONLY!!!!
+    @objc public override init() {
+        self.model = nil
+    }
+    
     
     @objc public func generateContent(prompt: String) async throws -> GenerateContentResponseObjc {
         do {
-            let response = try await model.generateContent(prompt)
+            let response = try await model!.generateContent(prompt)
             return GenerateContentResponseObjc.from(response)
         } catch {
             throw error.toNSError()
@@ -56,7 +61,7 @@ public class GenerativeModelObjc: NSObject {
     @objc public func generateContent(content: [ModelContentObjc]) async throws -> GenerateContentResponseObjc {
         do {
             let contents = content.map { ModelContentObjc.to($0) }
-            let response = try await model.generateContent(contents)
+            let response = try await model!.generateContent(contents)
             return GenerateContentResponseObjc.from(response)
         } catch {
             throw error.toNSError()
@@ -69,7 +74,7 @@ public class GenerativeModelObjc: NSObject {
         onComplete: @escaping (NSError?) -> Void
     ) {
         do {
-            let responseStream = try model.generateContentStream(prompt)
+            let responseStream = try model!.generateContentStream(prompt)
             Task {
                 do {
                     for try await response in responseStream {
@@ -92,7 +97,7 @@ public class GenerativeModelObjc: NSObject {
     ) {
         do {
             let contents = content.map { ModelContentObjc.to($0) }
-            let responseStream = try model.generateContentStream(contents)
+            let responseStream = try model!.generateContentStream(contents)
             Task {
                 do {
                     for try await response in responseStream {
@@ -112,7 +117,7 @@ public class GenerativeModelObjc: NSObject {
     
     @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
         do {
-            let response = try await model.countTokens(prompt)
+            let response = try await model!.countTokens(prompt)
             return CountTokensResponseObjc.from(response)
         } catch {
             throw error.toNSError()
@@ -122,7 +127,7 @@ public class GenerativeModelObjc: NSObject {
     @objc public func countTokens(content: [ModelContentObjc]) async throws -> CountTokensResponseObjc {
         do {
             let contents = content.map { ModelContentObjc.to($0) }
-            let response = try await model.countTokens(contents)
+            let response = try await model!.countTokens(contents)
             return CountTokensResponseObjc.from(response)
         } catch {
             throw error.toNSError()
