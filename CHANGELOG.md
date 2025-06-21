@@ -1,5 +1,5 @@
 # Unreleased
-
+* Remove redundant code in content generation functions by @SeanChinJunKai in #21
 
 # 0.2.0
 * Change GenerativeModel's model property to optional for easier testing by @SeanChinJunKai in #19
