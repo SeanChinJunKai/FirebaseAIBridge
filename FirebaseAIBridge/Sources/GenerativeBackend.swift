@@ -8,7 +8,19 @@
 import Foundation
 import FirebaseAI
 
-@objc public enum GenerativeBackendObjc: Int {
-    case googleAI = 0
-    case vertexAI = 1
+@objcMembers
+public class GenerativeBackendObjc: NSObject {
+    let backend: Backend
+    
+    init(backend: Backend) {
+        self.backend = backend
+    }
+    
+    public static func googleAI() -> GenerativeBackendObjc {
+        return GenerativeBackendObjc(backend: .googleAI())
+    }
+    
+    public static func vertexAI(location: String = "us-central1") -> GenerativeBackendObjc {
+        return GenerativeBackendObjc(backend: .vertexAI(location: location))
+    }
 }

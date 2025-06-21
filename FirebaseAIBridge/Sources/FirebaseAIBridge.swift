@@ -21,12 +21,7 @@ public class FirebaseAIObjc: NSObject {
     private let service: FirebaseAI
     
     init(backend: GenerativeBackendObjc) {
-        switch backend {
-        case .googleAI:
-            self.service = FirebaseAI.firebaseAI(backend: .googleAI())
-        case .vertexAI:
-            self.service = FirebaseAI.firebaseAI(backend: .vertexAI())
-        }
+        self.service = FirebaseAI.firebaseAI(backend: backend.backend)
     }
     // TODO: Add missing parameters
     @objc public func generativeModel(modelName: String) -> GenerativeModelObjc {
