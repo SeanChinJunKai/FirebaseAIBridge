@@ -48,16 +48,6 @@ public class GenerativeModelObjc: NSObject {
         self.model = nil
     }
     
-    
-    @objc public func generateContent(prompt: String) async throws -> GenerateContentResponseObjc {
-        do {
-            let response = try await model!.generateContent(prompt)
-            return GenerateContentResponseObjc.from(response)
-        } catch {
-            throw error.toNSError()
-        }
-    }
-    
     @objc public func generateContent(content: [ModelContentObjc]) async throws -> GenerateContentResponseObjc {
         do {
             let contents = content.map { ModelContentObjc.to($0) }
@@ -65,28 +55,6 @@ public class GenerativeModelObjc: NSObject {
             return GenerateContentResponseObjc.from(response)
         } catch {
             throw error.toNSError()
-        }
-    }
-    
-    @objc public func generateContentStream(
-        prompt: String,
-        onResponse: @escaping (GenerateContentResponseObjc) -> Void,
-        onComplete: @escaping (NSError?) -> Void
-    ) {
-        do {
-            let responseStream = try model!.generateContentStream(prompt)
-            Task {
-                do {
-                    for try await response in responseStream {
-                        onResponse(GenerateContentResponseObjc.from(response))
-                    }
-                    onComplete(nil)
-                } catch {
-                    onComplete(error.toNSError())
-                }
-            }
-        } catch {
-            onComplete(error.toNSError())
         }
     }
     
@@ -110,17 +78,6 @@ public class GenerativeModelObjc: NSObject {
             }
         } catch {
             onComplete(error.toNSError())
-        }
-    }
-    
-    
-    
-    @objc public func countTokens(prompt: String) async throws -> CountTokensResponseObjc {
-        do {
-            let response = try await model!.countTokens(prompt)
-            return CountTokensResponseObjc.from(response)
-        } catch {
-            throw error.toNSError()
         }
     }
     
