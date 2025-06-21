@@ -95,7 +95,7 @@ extension GenerateContentError {
                 domain: "FirebaseAIBridge",
                 code: FirebaseAIErrorObjc.responseStopped.rawValue,
                 userInfo: [
-                    NSLocalizedDescriptionKey: "Content generation stopped. Reason: \(reason)",
+                    NSLocalizedDescriptionKey: "Content generation stopped. Reason: \(reason.rawValue)",
                     "response": GenerateContentResponseObjc.from(response)
                 ]
             )
