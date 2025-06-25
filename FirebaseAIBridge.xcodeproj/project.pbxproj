@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6171DAFCB1429EE2220C365D /* Pods_FirebaseAIBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */; };
+		3E9FD2FDDD0C8C6AF6B1B6DE /* Pods_FirebaseAIBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCCC27A91378D7207B147AC /* Pods_FirebaseAIBridge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,15 +24,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14130850EB81150442818B4C /* Pods-FirebaseAIBridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.release.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.release.xcconfig"; sourceTree = "<group>"; };
+		2CCCC27A91378D7207B147AC /* Pods_FirebaseAIBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseAIBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50183B6B2E0650C00014E6F8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		50943A992DE2E73200F06953 /* FirebaseAIBridge.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FirebaseAIBridge.podspec; sourceTree = "<group>"; };
-		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		50943AC02DE37D2700F06953 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50943AC82DE37F5300F06953 /* libFirebaseAIBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseAIBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A8E1092DE7FF7B001307B0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		62F093BCF3E0FDAA011247CB /* Pods-FirebaseAIBridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.debug.xcconfig"; sourceTree = "<group>"; };
-		CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseAIBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC90D3DB5D67DAA76857ABC5 /* Pods-FirebaseAIBridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.release.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.release.xcconfig"; sourceTree = "<group>"; };
+		71CCD676D1D45823CF89F3B8 /* Pods-FirebaseAIBridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -48,13 +48,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6171DAFCB1429EE2220C365D /* Pods_FirebaseAIBridge.framework in Frameworks */,
+				3E9FD2FDDD0C8C6AF6B1B6DE /* Pods_FirebaseAIBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C7553CFC6E7A860E59366EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CCCC27A91378D7207B147AC /* Pods_FirebaseAIBridge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		501965A12DDC945A00507260 = {
 			isa = PBXGroup;
 			children = (
@@ -64,27 +72,19 @@
 				50943ABC2DE37BD100F06953 /* Podfile */,
 				50943A992DE2E73200F06953 /* FirebaseAIBridge.podspec */,
 				501965AC2DDC945A00507260 /* FirebaseAIBridge */,
-				6B8BE2C854D4F9CED961222F /* Pods */,
-				7046DAC8DFDCD6111FB404B1 /* Frameworks */,
 				50943AC82DE37F5300F06953 /* libFirebaseAIBridge.a */,
+				EEC7B1F69EB3F24BD07B5BEA /* Pods */,
+				0C7553CFC6E7A860E59366EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		6B8BE2C854D4F9CED961222F /* Pods */ = {
+		EEC7B1F69EB3F24BD07B5BEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				62F093BCF3E0FDAA011247CB /* Pods-FirebaseAIBridge.debug.xcconfig */,
-				EC90D3DB5D67DAA76857ABC5 /* Pods-FirebaseAIBridge.release.xcconfig */,
+				71CCD676D1D45823CF89F3B8 /* Pods-FirebaseAIBridge.debug.xcconfig */,
+				14130850EB81150442818B4C /* Pods-FirebaseAIBridge.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7046DAC8DFDCD6111FB404B1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,7 +94,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501965B12DDC945A00507260 /* Build configuration list for PBXNativeTarget "FirebaseAIBridge" */;
 			buildPhases = (
-				414FB814AF6CCE309FCFFFD4 /* [CP] Check Pods Manifest.lock */,
+				E61F2A830E009623681D906D /* [CP] Check Pods Manifest.lock */,
 				501965A62DDC945A00507260 /* Sources */,
 				501965A72DDC945A00507260 /* Frameworks */,
 				501965A82DDC945A00507260 /* Copy Files */,
@@ -136,8 +136,6 @@
 			);
 			mainGroup = 501965A12DDC945A00507260;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 501965A12DDC945A00507260;
 			projectDirPath = "";
@@ -149,7 +147,24 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		414FB814AF6CCE309FCFFFD4 /* [CP] Check Pods Manifest.lock */ = {
+		501965BC2DDCBC4000507260 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "targetDir=${BUILT_PRODUCTS_DIR}/include/${PRODUCT_MODULE_NAME}/\nmkdir -p $targetDir\ncp ${DERIVED_SOURCES_DIR}/*-Swift.h ${targetDir}\n";
+		};
+		E61F2A830E009623681D906D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -170,23 +185,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		501965BC2DDCBC4000507260 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "targetDir=${BUILT_PRODUCTS_DIR}/include/${PRODUCT_MODULE_NAME}/\nmkdir -p $targetDir\ncp ${DERIVED_SOURCES_DIR}/*-Swift.h ${targetDir}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -322,7 +320,7 @@
 		};
 		501965B22DDC945A00507260 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62F093BCF3E0FDAA011247CB /* Pods-FirebaseAIBridge.debug.xcconfig */;
+			baseConfigurationReference = 71CCD676D1D45823CF89F3B8 /* Pods-FirebaseAIBridge.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -337,7 +335,7 @@
 		};
 		501965B32DDC945A00507260 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC90D3DB5D67DAA76857ABC5 /* Pods-FirebaseAIBridge.release.xcconfig */;
+			baseConfigurationReference = 14130850EB81150442818B4C /* Pods-FirebaseAIBridge.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
