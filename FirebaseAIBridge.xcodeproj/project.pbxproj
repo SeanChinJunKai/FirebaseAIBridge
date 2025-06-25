@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50E40D8F2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E40D8E2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework */; };
+		50E40D902E0BD83100EA1D39 /* FirebaseAIBridge.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E40D8E2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6171DAFCB1429EE2220C365D /* Pods_FirebaseAIBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,15 +23,27 @@
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50E40D912E0BD83100EA1D39 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				50E40D902E0BD83100EA1D39 /* FirebaseAIBridge.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		50183B6B2E0650C00014E6F8 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		50943A992DE2E73200F06953 /* FirebaseAIBridge.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FirebaseAIBridge.podspec; sourceTree = "<group>"; };
-		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		50943ABC2DE37BD100F06953 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		50943AC02DE37D2700F06953 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50943AC82DE37F5300F06953 /* libFirebaseAIBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseAIBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A8E1092DE7FF7B001307B0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		50E40D8E2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAIBridge.xcframework; path = "../Library/Developer/Xcode/DerivedData/FirebaseAIBridge-hfmaapiyxuyleackzavjvucrkbcn/Build/Products/FirebaseAIBridge.xcframework"; sourceTree = "<group>"; };
 		62F093BCF3E0FDAA011247CB /* Pods-FirebaseAIBridge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseAIBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC90D3DB5D67DAA76857ABC5 /* Pods-FirebaseAIBridge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAIBridge.release.xcconfig"; path = "Target Support Files/Pods-FirebaseAIBridge/Pods-FirebaseAIBridge.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6171DAFCB1429EE2220C365D /* Pods_FirebaseAIBridge.framework in Frameworks */,
+				50E40D8F2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +97,7 @@
 		7046DAC8DFDCD6111FB404B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50E40D8E2E0BD83100EA1D39 /* FirebaseAIBridge.xcframework */,
 				CF5E23705B31630F152BABA3 /* Pods_FirebaseAIBridge.framework */,
 			);
 			name = Frameworks;
@@ -99,6 +115,7 @@
 				501965A72DDC945A00507260 /* Frameworks */,
 				501965A82DDC945A00507260 /* Copy Files */,
 				501965BC2DDCBC4000507260 /* ShellScript */,
+				50E40D912E0BD83100EA1D39 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

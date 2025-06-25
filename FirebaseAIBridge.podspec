@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FirebaseAIBridge'
-  s.version          = "0.1.0"
+  s.version          = "0.3.0"
   s.summary          = 'Firebase AI Objective-C Bridge'
 
   s.homepage         = 'https://github.com/SeanChinJunKai'
@@ -26,6 +26,8 @@ Pod::Spec.new do |s|
   s.public_header_files = [
     'FirebaseAIBridge/Sources/*.h'
   ]
+  
+  s.vendored_frameworks = 'FirebaseAIBridge.xcframework'
 
   s.swift_version = '5.9'
 
