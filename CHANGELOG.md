@@ -2,6 +2,7 @@
 * Remove redundant code in content generation functions by @SeanChinJunKai in #21
 * Allow specifying location for vertexAI backend by @SeanChinJunKai in #22
 * Use finishReason rawValue in error message by @SeanChinJunKai in #23
+* Update firebase-ios-sdk dependencies to 11.15.0 by @SeanChinJunKai in #27
 
 # 0.2.0
 * Change GenerativeModel's model property to optional for easier testing by @SeanChinJunKai in #19
