@@ -24,8 +24,15 @@ public class FirebaseAIObjc: NSObject {
         self.service = FirebaseAI.firebaseAI(backend: backend.backend)
     }
     // TODO: Add missing parameters
-    @objc public func generativeModel(modelName: String) -> GenerativeModelObjc {
-        return GenerativeModelObjc(model: self.service.generativeModel(modelName: modelName))
+    @objc public func generativeModel(modelName: String, generationConfig: GenerationConfigObjc? = nil) -> GenerativeModelObjc {
+        return GenerativeModelObjc(
+            model: self.service.generativeModel(
+                modelName: modelName,
+                generationConfig: generationConfig.map {
+                    GenerationConfigObjc.to($0)
+                }
+            ),
+        )
     }
 }
 
