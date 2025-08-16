@@ -94,14 +94,25 @@ public class SchemaObjc: NSObject {
                 )
             }
         case "INTEGER":
-            return Schema.integer(
-                description: schema.descriptionText,
-                title: schema.title,
-                nullable: schema.nullable!.boolValue,
-                format: Schema.IntegerFormat.int64,
-                minimum:schema.minimum?.intValue,
-                maximum: schema.maximum?.intValue
-            )
+            if (schema.format == "int32") {
+                return Schema.integer(
+                    description: schema.descriptionText,
+                    title: schema.title,
+                    nullable: schema.nullable!.boolValue,
+                    format: Schema.IntegerFormat.int32,
+                    minimum:schema.minimum?.intValue,
+                    maximum: schema.maximum?.intValue
+                )
+            } else {
+                return Schema.integer(
+                    description: schema.descriptionText,
+                    title: schema.title,
+                    nullable: schema.nullable!.boolValue,
+                    format: Schema.IntegerFormat.int64,
+                    minimum:schema.minimum?.intValue,
+                    maximum: schema.maximum?.intValue
+                )
+            }
         case "BOOLEAN":
             return Schema.boolean(
                 description: schema.descriptionText,
