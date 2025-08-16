@@ -33,7 +33,7 @@ public class SchemaObjc: NSObject {
     public let anyOf: [SchemaObjc]?
     public let propertyOrdering: [String]?
     
-    public init(type: String, descriptionText: String?, format: String?, nullable: NSNumber?, enumValues: [String]?, properties: [String : SchemaObjc]?, requiredProperties: [String]?, items: SchemaObjc?, title: String?, minItems: NSNumber?, maxItems: NSNumber?, minimum: NSNumber?, maximum: NSNumber?, anyOf: [SchemaObjc]?, propertyOrdering: [String]?) {
+    public required init(type: String, descriptionText: String? = nil, format: String? = nil, nullable: NSNumber? = nil, enumValues: [String]? = nil, properties: [String : SchemaObjc]? = nil, requiredProperties: [String]? = nil, items: SchemaObjc? = nil, title: String? = nil, minItems: NSNumber? = nil, maxItems: NSNumber? = nil, minimum: NSNumber? = nil, maximum: NSNumber? = nil, anyOf: [SchemaObjc]? = nil, propertyOrdering: [String]? = nil) {
         self.type = type
         self.descriptionText = descriptionText
         self.format = format
@@ -51,7 +51,137 @@ public class SchemaObjc: NSObject {
         self.propertyOrdering = propertyOrdering
     }
     
+    public static func string(description: String? = nil, title: String? = nil,
+                              nullable: Bool = false, format: StringFormatObjc? = nil) -> SchemaObjc {
+      return self.init(
+        type: "STRING",
+        descriptionText: description,
+        format: format?.rawValue,
+        nullable: nullable as NSNumber,
+        title: title,
+      )
+    }
     
+    public static func enumeration(values: [String], description: String? = nil,
+                                   title: String? = nil, nullable: Bool = false) -> SchemaObjc {
+      return self.init(
+        type: "STRING",
+        descriptionText: description,
+        format: "enum",
+        nullable: nullable as NSNumber,
+        enumValues: values,
+        title: title,
+      )
+    }
+    
+    public static func float(description: String? = nil, title: String? = nil, nullable: Bool = false,
+                             minimum: NSNumber? = nil, maximum: NSNumber? = nil) -> SchemaObjc {
+      return self.init(
+        type: "NUMBER",
+        descriptionText: description,
+        format: "float",
+        nullable: nullable as NSNumber,
+        title: title,
+        minimum: minimum,
+        maximum: maximum
+      )
+    }
+    
+    public static func double(description: String? = nil, title: String? = nil,
+                              nullable: Bool = false,
+                              minimum: NSNumber? = nil, maximum: NSNumber? = nil) -> SchemaObjc {
+      return self.init(
+        type: "NUMBER",
+        descriptionText: description,
+        nullable: nullable as NSNumber,
+        title: title,
+        minimum: minimum,
+        maximum: maximum
+      )
+    }
+    
+    public static func integer(description: String? = nil, title: String? = nil,
+                               nullable: Bool = false,
+                               minimum: NSNumber? = nil, maximum: NSNumber? = nil) -> SchemaObjc {
+      return self.init(
+        type: "INTEGER",
+        descriptionText: description,
+        format: "int32",
+        nullable: nullable as NSNumber,
+        title: title,
+        minimum: minimum,
+        maximum: maximum
+      )
+    }
+    
+    public static func long(description: String? = nil, title: String? = nil,
+                               nullable: Bool = false,
+                               minimum: NSNumber? = nil, maximum: NSNumber? = nil) -> SchemaObjc {
+      return self.init(
+        type: "INTEGER",
+        descriptionText: description,
+        format: "int64",
+        nullable: nullable as NSNumber,
+        title: title,
+        minimum: minimum,
+        maximum: maximum
+      )
+    }
+    
+    public static func boolean(description: String? = nil, title: String? = nil,
+                               nullable: Bool = false) -> SchemaObjc {
+      return self.init(
+        type: "BOOLEAN",
+        descriptionText: description,
+        nullable: nullable as NSNumber,
+        title: title
+      )
+    }
+
+    
+    public static func array(items: SchemaObjc, description: String? = nil, title: String? = nil,
+                             nullable: Bool = false, minItems: NSNumber? = nil,
+                             maxItems: NSNumber? = nil) -> SchemaObjc {
+      return self.init(
+        type: "ARRAY",
+        descriptionText: description,
+        nullable: nullable as NSNumber,
+        items: items,
+        title: title,
+        minItems: minItems,
+        maxItems: maxItems
+      )
+    }
+    
+    public static func object(properties: [String: SchemaObjc], optionalProperties: [String] = [],
+                              propertyOrdering: [String]? = nil,
+                              description: String? = nil, title: String? = nil,
+                              nullable: Bool = false) -> SchemaObjc {
+      var requiredProperties = Set(properties.keys)
+      for optionalProperty in optionalProperties {
+        guard properties.keys.contains(optionalProperty) else {
+          fatalError("Optional property \"\(optionalProperty)\" not defined in object properties.")
+        }
+        requiredProperties.remove(optionalProperty)
+      }
+
+      return self.init(
+        type: "OBJECT",
+        descriptionText: description,
+        nullable: nullable as NSNumber,
+        properties: properties,
+        requiredProperties: requiredProperties.sorted(),
+        title: title,
+        propertyOrdering: propertyOrdering
+      )
+    }
+    
+    public static func anyOf(schemas: [SchemaObjc]) -> SchemaObjc {
+      return self.init(
+        type: "ANYOF",
+        anyOf: schemas
+      )
+    }
     
     public static func to(_ schema: SchemaObjc) -> Schema {
         // string -> type is String
