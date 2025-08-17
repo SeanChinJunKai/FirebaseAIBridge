@@ -67,7 +67,7 @@ import FirebaseAI
             },
             thinkingConfig: generationConfig.thinkingConfig.map {
                 ThinkingConfigObjc.to($0)
-            },
+            }
         )
     }
 }

@@ -31,7 +31,7 @@ public class FirebaseAIObjc: NSObject {
                 generationConfig: generationConfig.map {
                     GenerationConfigObjc.to($0)
                 }
-            ),
+            )
         )
     }
 }
