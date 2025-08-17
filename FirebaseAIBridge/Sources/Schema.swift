@@ -58,7 +58,7 @@ public class SchemaObjc: NSObject {
         descriptionText: description,
         format: format?.rawValue,
         nullable: nullable as NSNumber,
-        title: title,
+        title: title
       )
     }
     
@@ -70,7 +70,7 @@ public class SchemaObjc: NSObject {
         format: "enum",
         nullable: nullable as NSNumber,
         enumValues: values,
-        title: title,
+        title: title
       )
     }
     
@@ -194,7 +194,7 @@ public class SchemaObjc: NSObject {
                     nullable: schema.nullable!.boolValue,
                     format: schema.format.map {
                         Schema.StringFormat.custom($0)
-                    },
+                    }
                 )
             } else {
                 return Schema.enumeration(
@@ -247,7 +247,7 @@ public class SchemaObjc: NSObject {
             return Schema.boolean(
                 description: schema.descriptionText,
                 title: schema.title,
-                nullable: schema.nullable!.boolValue,
+                nullable: schema.nullable!.boolValue
             )
         case "ARRAY":
             return Schema.array(
@@ -268,7 +268,7 @@ public class SchemaObjc: NSObject {
                 propertyOrdering: schema.propertyOrdering,
                 description: schema.descriptionText,
                 title: schema.title,
-                nullable: schema.nullable!.boolValue,
+                nullable: schema.nullable!.boolValue
             )
         default:
             return Schema.anyOf(
