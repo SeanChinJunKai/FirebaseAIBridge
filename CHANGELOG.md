@@ -1,4 +1,4 @@
-# Unreleased
+# 0.4.0
 * Add structured output functionality by @SeanChinJunKai in #29
 * Deprecate totalBillableCharacters in CountTokensResponse
 
