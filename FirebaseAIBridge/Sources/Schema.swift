@@ -188,6 +188,13 @@ public class SchemaObjc: NSObject {
         switch schema.type {
         case "STRING":
             if (schema.format == "enum") {
+                return Schema.enumeration(
+                    values: schema.enumValues!,
+                    description: schema.descriptionText,
+                    title: schema.title,
+                    nullable: schema.nullable!.boolValue
+                )
+            } else {
                 return Schema.string(
                     description: schema.descriptionText,
                     title: schema.title,
@@ -195,13 +202,6 @@ public class SchemaObjc: NSObject {
                     format: schema.format.map {
                         Schema.StringFormat.custom($0)
                     }
-                )
-            } else {
-                return Schema.enumeration(
-                    values: schema.enumValues!,
-                    description: schema.descriptionText,
-                    title: schema.title,
-                    nullable: schema.nullable!.boolValue
                 )
             }
             
